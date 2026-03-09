@@ -3,6 +3,11 @@
 This repository contains a capstone project focused on analyzing **Unified Payments Interface (UPI)** transactions and trends.  
 The project explores adoption patterns, transaction volumes, user behavior, and the overall impact of UPI on digital payments in India.
 
+## Dashboard Access
+You can view the live dashboard here:  
+[UPI Analysis Dashboard](https://me-vikash-kumar.github.io/UPI-Analysis/index.html)
+<img width="571" height="580" alt="image" src="https://github.com/user-attachments/assets/746d7211-70ed-47c1-997a-0103b637edfc" />
+
 ## Features
 - Analysis of UPI transaction data across time periods  
 - Insights into growth trends and adoption rates  
@@ -20,9 +25,6 @@ The project explores adoption patterns, transaction volumes, user behavior, and 
 - Provide actionable insights for businesses and policymakers  
 - Deliver a user-friendly dashboard for exploring UPI data  
 
-## Dashboard Access
-You can view the live dashboard here:  
-[UPI Analysis Dashboard](https://me-vikash-kumar.github.io/UPI-Analysis/index.html)
 
 ---
 
