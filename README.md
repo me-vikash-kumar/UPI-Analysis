@@ -6,6 +6,7 @@ The project explores adoption patterns, transaction volumes, user behavior, and 
 ## Dashboard Access
 You can view the live dashboard here:  
 [UPI Analysis Dashboard](https://me-vikash-kumar.github.io/UPI-Analysis/index.html)
+
 <img width="571" height="580" alt="image" src="https://github.com/user-attachments/assets/746d7211-70ed-47c1-997a-0103b637edfc" />
 
 ## Features
