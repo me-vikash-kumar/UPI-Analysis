@@ -1,0 +1,501 @@
+﻿merchant_id,merchant_name,merchant_type,region,onboard_date,risk_score,risk_score
+merch1000,Anderson Inc,grocery,north,14-01-2022,0.07,Low Risk
+merch1001,"Rojas, Newton and White",online,north,20-08-2021,0.29,Medium Risk
+merch1002,Knox-Reyes,food,west,29-10-2024,0.2,Medium Risk
+merch1003,"Joseph, Serrano and Gilmore",grocery,north,22-07-2023,0.14,Low Risk
+merch1004,Brown-Jones,food,north,02-01-2024,0.32,Medium Risk
+merch1005,Russell-Jones,food,north,15-12-2022,0.29,Medium Risk
+merch1006,Mckay-Dean,electronics,east,03-06-2022,0.22,Medium Risk
+merch1007,Woodward-Tran,food,west,13-05-2023,0.42,Medium Risk
+merch1008,"Martinez, Osborn and Foster",food,south,25-12-2024,0.15,Low Risk
+merch1009,Whitney-Stevenson,food,east,04-09-2021,0.15,Low Risk
+merch1010,"Moore, Christensen and Watson",apparel,central,17-10-2023,0.48,Medium Risk
+merch1011,Taylor-Lopez,electronics,south,12-06-2022,0.09,Low Risk
+merch1012,Williams Ltd,grocery,north,03-12-2023,0.15,Low Risk
+merch1013,"Norman, Keller and Hudson",apparel,east,08-09-2024,0.26,Medium Risk
+merch1014,Osborn-Washington,electronics,north,23-08-2022,0.27,Medium Risk
+merch1015,Marshall and Sons,electronics,east,05-03-2024,0.12,Low Risk
+merch1016,Anderson-Keller,online,west,31-12-2024,0.34,Medium Risk
+merch1017,Torres-Gonzalez,transport,north,27-12-2022,0.13,Low Risk
+merch1018,Calderon Inc,apparel,west,15-08-2021,0.15,Low Risk
+merch1019,Leonard LLC,transport,south,20-09-2020,0.17,Low Risk
+merch1020,Newton Ltd,apparel,east,10-07-2021,0.03,Low Risk
+merch1021,Martinez-Garcia,food,south,12-02-2025,0.28,Medium Risk
+merch1022,Love and Sons,electronics,west,16-09-2022,0.02,Low Risk
+merch1023,Mcbride and Sons,apparel,north,20-07-2023,0.16,Low Risk
+merch1024,"Rodriguez, Mitchell and Cooper",apparel,east,12-01-2021,0.03,Low Risk
+merch1025,"Vargas, Washington and Stevenson",grocery,east,14-08-2021,0.16,Low Risk
+merch1026,Gutierrez-Burton,apparel,north,06-05-2024,0.18,Low Risk
+merch1027,Jackson Group,transport,south,29-07-2022,0.46,Medium Risk
+merch1028,Molina Inc,apparel,south,14-08-2021,0.23,Medium Risk
+merch1029,Farmer-Marquez,grocery,north,20-06-2023,0.02,Low Risk
+merch1030,Taylor-Lawson,apparel,east,13-11-2022,0.26,Medium Risk
+merch1031,"Gross, Gonzalez and Stone",apparel,north,26-05-2021,0.27,Medium Risk
+merch1032,Casey-Avila,grocery,central,11-08-2024,0.25,Medium Risk
+merch1033,Hill-Williams,food,east,18-07-2022,0.07,Low Risk
+merch1034,Lambert and Sons,food,north,12-04-2025,0.06,Low Risk
+merch1035,Hines-Fitzgerald,transport,central,01-06-2022,0.15,Low Risk
+merch1036,Cabrera-Parks,food,west,31-03-2023,0.08,Low Risk
+merch1037,"Austin, Washington and Barr",online,east,19-05-2021,0.29,Medium Risk
+merch1038,Mcmahon-Cabrera,transport,central,27-09-2022,0,Low Risk
+merch1039,Skinner Ltd,electronics,west,09-04-2023,0.04,Low Risk
+merch1040,"Horne, Rice and Olson",transport,north,24-06-2023,0.29,Medium Risk
+merch1041,Kelley-Stewart,grocery,west,28-09-2020,0.13,Low Risk
+merch1042,"Martin, Campbell and Perez",apparel,south,01-11-2022,0,Low Risk
+merch1043,"Pratt, Mcneil and Callahan",apparel,west,23-04-2024,0.29,Medium Risk
+merch1044,May-Schultz,apparel,east,01-12-2022,0.5,High Risk
+merch1045,Brown Ltd,electronics,west,12-11-2024,0.26,Medium Risk
+merch1046,"Serrano, Moss and Williams",electronics,central,12-02-2022,0.29,Medium Risk
+merch1047,Goodman-Lee,apparel,north,15-07-2025,0.02,Low Risk
+merch1048,Brooks-Scott,grocery,west,24-05-2023,0.32,Medium Risk
+merch1049,Gibson-Brooks,grocery,north,03-05-2025,0.09,Low Risk
+merch1050,Lynn and Sons,electronics,north,15-12-2021,0.07,Low Risk
+merch1051,"Calhoun, Riley and Stewart",transport,east,03-01-2025,0.23,Medium Risk
+merch1052,Pratt-Adkins,electronics,north,27-06-2025,0.33,Medium Risk
+merch1053,Simmons-Bishop,grocery,south,27-04-2021,0.1,Low Risk
+merch1054,White LLC,apparel,west,22-05-2024,0.15,Low Risk
+merch1055,"Young, Miller and Hopkins",electronics,east,21-03-2025,0.09,Low Risk
+merch1056,Gutierrez-Williams,grocery,east,06-11-2024,0.22,Medium Risk
+merch1057,Ward LLC,transport,east,21-04-2021,0.28,Medium Risk
+merch1058,Mcclure PLC,transport,west,09-10-2022,0.1,Low Risk
+merch1059,Terry Ltd,grocery,south,18-03-2022,0.29,Medium Risk
+merch1060,Allen PLC,food,north,03-09-2023,0,Low Risk
+merch1061,Alexander LLC,grocery,central,03-03-2021,0.14,Low Risk
+merch1062,Olson-Rose,online,central,21-01-2024,0.18,Low Risk
+merch1063,Miles LLC,apparel,central,12-06-2025,0.03,Low Risk
+merch1064,Hughes-Figueroa,electronics,west,04-04-2021,0.13,Low Risk
+merch1065,"Cox, Davis and Murphy",grocery,south,06-01-2021,0,Low Risk
+merch1066,"Mays, Lee and Summers",online,south,13-06-2021,0.09,Low Risk
+merch1067,Garrison-Simpson,electronics,east,01-08-2022,0.27,Medium Risk
+merch1068,Greene-Williams,grocery,north,28-01-2021,0.03,Low Risk
+merch1069,Weeks-Thomas,online,north,12-06-2023,0,Low Risk
+merch1070,Flores-Hardy,online,central,24-02-2023,0.09,Low Risk
+merch1071,"Johnson, Hudson and Collier",food,central,15-11-2024,0.1,Low Risk
+merch1072,"Garcia, Vang and Gibson",transport,north,19-03-2023,0.21,Medium Risk
+merch1073,Pearson PLC,electronics,west,18-02-2024,0.3,Medium Risk
+merch1074,"Potts, Jones and Brown",apparel,south,07-06-2024,0.17,Low Risk
+merch1075,Jones Group,food,north,14-07-2022,0,Low Risk
+merch1076,Miller Inc,apparel,south,02-01-2025,0.36,Medium Risk
+merch1077,Gutierrez PLC,apparel,central,12-06-2021,0.05,Low Risk
+merch1078,Sanchez-Bennett,apparel,east,07-02-2024,0.1,Low Risk
+merch1079,Brown Inc,food,central,19-11-2022,0.38,Medium Risk
+merch1080,Wilson Inc,food,west,04-05-2023,0.16,Low Risk
+merch1081,Gray-Spencer,grocery,central,17-12-2023,0.26,Medium Risk
+merch1082,Smith-Campbell,grocery,west,15-01-2021,0.15,Low Risk
+merch1083,Richards Inc,online,west,12-06-2022,0.35,Medium Risk
+merch1084,Brown-Stevens,online,south,26-04-2021,0.33,Medium Risk
+merch1085,"Garner, Barker and Miller",online,south,24-05-2023,0.04,Low Risk
+merch1086,Hill-Ford,food,east,10-11-2020,0.25,Medium Risk
+merch1087,"Jordan, Cisneros and Brown",electronics,south,20-06-2024,0.05,Low Risk
+merch1088,"Blanchard, Salazar and Miles",transport,central,16-08-2024,0.15,Low Risk
+merch1089,"Kirk, Robinson and Gamble",online,east,21-04-2022,0.16,Low Risk
+merch1090,"Mayo, Beck and Foster",food,east,06-05-2022,0.06,Low Risk
+merch1091,Anderson-Guerrero,electronics,central,16-09-2023,0.42,Medium Risk
+merch1092,Moss PLC,online,east,05-02-2021,0.33,Medium Risk
+merch1093,Shaw-Collins,grocery,east,17-08-2020,0,Low Risk
+merch1094,Hunt-Bowen,grocery,east,23-07-2025,0.22,Medium Risk
+merch1095,Zhang-Harvey,apparel,central,20-04-2021,0.26,Medium Risk
+merch1096,Thomas-Collins,electronics,south,09-02-2025,0.17,Low Risk
+merch1097,Williams Group,grocery,north,25-11-2024,0.11,Low Risk
+merch1098,Harding-Navarro,online,south,27-02-2021,0.34,Medium Risk
+merch1099,Hernandez Group,apparel,north,05-01-2025,0.19,Low Risk
+merch1100,Trevino and Sons,food,east,25-07-2022,0.26,Medium Risk
+merch1101,"Jarvis, Howard and Lee",online,south,04-07-2025,0.12,Low Risk
+merch1102,"Conrad, Smith and Navarro",online,west,21-08-2024,0.09,Low Risk
+merch1103,Curtis Ltd,apparel,east,30-04-2023,0.14,Low Risk
+merch1104,"English, Washington and Johnson",food,east,13-01-2023,0.42,Medium Risk
+merch1105,"Meza, Brown and Daniel",apparel,south,04-04-2022,0.41,Medium Risk
+merch1106,"Porter, Richmond and Turner",transport,south,21-01-2024,0.08,Low Risk
+merch1107,"Bell, Salazar and Nguyen",electronics,east,15-10-2020,0.04,Low Risk
+merch1108,Osborn and Sons,transport,central,27-06-2022,0.2,Medium Risk
+merch1109,"Boyd, Welch and Henry",transport,west,05-10-2023,0.13,Low Risk
+merch1110,"Jackson, Miller and Gibbs",online,central,28-08-2024,0.18,Low Risk
+merch1111,"Riddle, Miranda and Reyes",online,east,09-06-2023,0.02,Low Risk
+merch1112,Blackburn-Kerr,apparel,central,08-03-2025,0.14,Low Risk
+merch1113,Woods-Stewart,apparel,north,09-04-2023,0.4,Medium Risk
+merch1114,Smith-Mays,food,east,23-09-2023,0.28,Medium Risk
+merch1115,"Ross, Sparks and Payne",online,north,29-11-2024,0.22,Medium Risk
+merch1116,"Travis, Wood and Glenn",food,central,21-09-2023,0.26,Medium Risk
+merch1117,King Inc,apparel,west,23-08-2021,0.31,Medium Risk
+merch1118,Todd-Howard,food,north,03-02-2022,0.1,Low Risk
+merch1119,Hernandez-Vazquez,apparel,west,16-12-2022,0.28,Medium Risk
+merch1120,Norris LLC,transport,east,01-08-2022,0.23,Medium Risk
+merch1121,Valentine-Waller,food,central,13-12-2024,0.18,Low Risk
+merch1122,Harding-Long,apparel,west,25-08-2023,0.04,Low Risk
+merch1123,"Boyd, Jackson and Hansen",electronics,west,17-03-2025,0.11,Low Risk
+merch1124,King-Holder,electronics,west,26-02-2023,0.25,Medium Risk
+merch1125,"Lopez, Evans and Hooper",grocery,south,20-07-2023,0.31,Medium Risk
+merch1126,Mullins-Brown,apparel,north,04-07-2021,0.16,Low Risk
+merch1127,Stevens-Cole,food,south,26-01-2022,0.5,High Risk
+merch1128,"Mercado, Santiago and Perez",electronics,west,10-07-2025,0.34,Medium Risk
+merch1129,Harris Group,transport,north,21-08-2024,0.08,Low Risk
+merch1130,Nunez-Parker,transport,central,12-02-2024,0.24,Medium Risk
+merch1131,"Perry, Stewart and Smith",online,west,08-02-2024,0.14,Low Risk
+merch1132,"Jones, Heath and Kemp",grocery,east,14-03-2021,0.35,Medium Risk
+merch1133,"Dougherty, Reynolds and Howell",electronics,south,10-02-2024,0.16,Low Risk
+merch1134,Montoya-Lara,transport,north,27-05-2024,0.31,Medium Risk
+merch1135,"Garza, Mercado and Smith",apparel,south,11-06-2023,0.14,Low Risk
+merch1136,Gardner-Parrish,transport,west,06-12-2021,0.22,Medium Risk
+merch1137,Lloyd Group,electronics,central,16-10-2021,0.09,Low Risk
+merch1138,"Jones, Adams and Stanley",apparel,central,18-02-2025,0.17,Low Risk
+merch1139,Rodriguez-Fitzpatrick,online,west,23-08-2024,0.13,Low Risk
+merch1140,Sullivan-Walker,online,south,26-06-2022,0.25,Medium Risk
+merch1141,Price Group,apparel,north,06-01-2021,0.42,Medium Risk
+merch1142,Sanchez-Rodriguez,online,west,03-10-2023,0.27,Medium Risk
+merch1143,"Williams, Walker and Schwartz",food,central,07-04-2022,0.22,Medium Risk
+merch1144,Parks Ltd,apparel,central,09-05-2022,0.26,Medium Risk
+merch1145,Li-Hunt,transport,south,26-09-2021,0.36,Medium Risk
+merch1146,Nelson Ltd,grocery,south,25-08-2024,0.12,Low Risk
+merch1147,Holder Ltd,online,east,02-01-2021,0.2,Medium Risk
+merch1148,"Thomas, Beasley and Caldwell",grocery,north,15-02-2025,0.18,Low Risk
+merch1149,"Webster, Massey and Gillespie",grocery,west,08-02-2021,0.39,Medium Risk
+merch1150,"Martin, Le and Benson",apparel,east,16-10-2023,0.1,Low Risk
+merch1151,"Wilkerson, Copeland and Wells",food,north,18-10-2024,0.28,Medium Risk
+merch1152,"Clark, Petty and Allen",food,north,29-12-2021,0.24,Medium Risk
+merch1153,Miller and Sons,online,east,24-12-2021,0.34,Medium Risk
+merch1154,Diaz-Jacobs,online,east,24-12-2020,0.11,Low Risk
+merch1155,"Martin, Chavez and Williams",apparel,east,09-12-2021,0,Low Risk
+merch1156,Howard Inc,food,north,14-04-2024,0.02,Low Risk
+merch1157,Berry Inc,grocery,east,21-04-2023,0.06,Low Risk
+merch1158,Jones-Perez,apparel,west,22-02-2025,0.16,Low Risk
+merch1159,Gonzalez PLC,food,central,26-09-2020,0.34,Medium Risk
+merch1160,"Cook, Wilson and Sutton",grocery,west,22-01-2021,0.1,Low Risk
+merch1161,Cook-Lawson,online,east,01-04-2025,0.1,Low Risk
+merch1162,Hendricks-Avery,food,east,19-08-2022,0.25,Medium Risk
+merch1163,Cardenas and Sons,online,central,07-12-2023,0.1,Low Risk
+merch1164,Huang-Johnson,online,west,24-06-2023,0.25,Medium Risk
+merch1165,Ramos Ltd,transport,north,17-04-2024,0.12,Low Risk
+merch1166,"Andrade, Lynch and Compton",transport,west,20-12-2023,0.41,Medium Risk
+merch1167,Proctor-Myers,transport,west,09-06-2021,0.27,Medium Risk
+merch1168,Moore LLC,food,north,24-05-2025,0.15,Low Risk
+merch1169,"Garcia, Schneider and Jimenez",grocery,east,30-11-2023,0.03,Low Risk
+merch1170,"Melendez, Bryant and Dunlap",transport,central,21-12-2022,0.36,Medium Risk
+merch1171,Shaw-Andrews,grocery,north,21-09-2024,0,Low Risk
+merch1172,Jackson Group,electronics,east,19-04-2022,0,Low Risk
+merch1173,Perez-Hernandez,food,south,09-12-2024,0.3,Medium Risk
+merch1174,Taylor Ltd,online,central,04-06-2021,0.13,Low Risk
+merch1175,"Smith, Sloan and Hines",apparel,west,06-10-2021,0.13,Low Risk
+merch1176,Lozano-Andrews,online,east,28-11-2023,0.12,Low Risk
+merch1177,Moore-Rose,grocery,central,27-11-2021,0,Low Risk
+merch1178,"Mcdonald, Jones and Patrick",electronics,west,31-05-2025,0.41,Medium Risk
+merch1179,Boyd Inc,online,central,27-09-2024,0.04,Low Risk
+merch1180,Smith-Roberts,transport,north,29-12-2023,0.25,Medium Risk
+merch1181,"Shelton, Rubio and Ferrell",online,south,25-06-2024,0,Low Risk
+merch1182,"Garcia, Novak and Duran",grocery,north,05-03-2025,0.17,Low Risk
+merch1183,Vargas and Sons,apparel,central,04-04-2025,0.22,Medium Risk
+merch1184,Clayton-Smith,online,central,06-10-2020,0.18,Low Risk
+merch1185,Silva PLC,online,central,24-12-2024,0.43,Medium Risk
+merch1186,"Gray, Weeks and Horton",electronics,north,22-09-2022,0.14,Low Risk
+merch1187,Barker-Stone,electronics,west,15-05-2022,0,Low Risk
+merch1188,Guerra PLC,electronics,south,11-11-2022,0.06,Low Risk
+merch1189,Johnson-Petersen,food,south,24-10-2021,0.33,Medium Risk
+merch1190,Flores-Porter,transport,west,17-03-2022,0.17,Low Risk
+merch1191,Sweeney Inc,transport,west,16-06-2023,0.23,Medium Risk
+merch1192,Snyder-Wright,transport,north,07-03-2025,0.1,Low Risk
+merch1193,Ramirez-Robinson,transport,west,20-06-2022,0.36,Medium Risk
+merch1194,"Joyce, Harvey and Diaz",transport,north,13-01-2024,0.31,Medium Risk
+merch1195,Buck Group,transport,central,02-08-2021,0.23,Medium Risk
+merch1196,Mccoy Inc,apparel,west,26-06-2022,0.08,Low Risk
+merch1197,"Washington, Stone and Knox",electronics,north,09-02-2024,0.2,Medium Risk
+merch1198,Washington Ltd,food,south,05-05-2023,0.28,Medium Risk
+merch1199,"Barnes, Hammond and Callahan",apparel,central,06-06-2025,0.15,Low Risk
+merch1200,Gutierrez-Mitchell,electronics,east,09-03-2022,0.27,Medium Risk
+merch1201,"Garcia, Mann and Sharp",grocery,west,04-01-2025,0.12,Low Risk
+merch1202,"Lewis, Thomas and Jones",food,north,22-06-2024,0.06,Low Risk
+merch1203,"Durham, Miller and Lara",apparel,west,23-07-2021,0.06,Low Risk
+merch1204,"Cohen, Roach and Hawkins",apparel,west,02-12-2020,0.08,Low Risk
+merch1205,"Ingram, Holt and Lee",electronics,south,29-11-2024,0.11,Low Risk
+merch1206,Gonzales LLC,apparel,south,15-08-2024,0.09,Low Risk
+merch1207,Smith-Frey,grocery,central,31-05-2022,0,Low Risk
+merch1208,"Smith, Johnson and Combs",grocery,east,05-10-2023,0.2,Medium Risk
+merch1209,Garner-Perez,electronics,west,04-10-2022,0.37,Medium Risk
+merch1210,Bradley-Ferguson,grocery,north,27-12-2020,0.11,Low Risk
+merch1211,Wiley and Sons,food,central,14-03-2025,0.19,Low Risk
+merch1212,Logan-Zuniga,apparel,north,18-12-2024,0.2,Medium Risk
+merch1213,Nielsen-Oconnell,electronics,east,21-01-2025,0.19,Low Risk
+merch1214,Hampton-Edwards,grocery,central,28-09-2021,0.22,Medium Risk
+merch1215,"Hayes, Martin and Nguyen",food,west,25-11-2023,0.09,Low Risk
+merch1216,Wiggins Inc,apparel,central,09-02-2024,0.21,Medium Risk
+merch1217,Levine-King,food,east,09-04-2021,0.25,Medium Risk
+merch1218,"Miller, Fowler and Davila",electronics,south,04-04-2022,0.15,Low Risk
+merch1219,Martin-Hayes,food,south,24-10-2024,0.16,Low Risk
+merch1220,Ortega Group,transport,north,05-10-2023,0.13,Low Risk
+merch1221,"Rhodes, Nielsen and Shea",transport,north,08-11-2024,0.17,Low Risk
+merch1222,Miller-Wheeler,online,central,11-11-2020,0,Low Risk
+merch1223,Williams-Salinas,food,west,09-08-2024,0.07,Low Risk
+merch1224,"Cole, Cooley and Thompson",electronics,south,03-03-2025,0.04,Low Risk
+merch1225,Wong Group,grocery,west,12-04-2021,0.37,Medium Risk
+merch1226,Jefferson Group,electronics,central,18-01-2022,0.17,Low Risk
+merch1227,Macdonald-York,grocery,west,06-05-2024,0.4,Medium Risk
+merch1228,"Smith, Martin and Ward",grocery,south,27-02-2022,0.45,Medium Risk
+merch1229,Mendoza-Beasley,online,north,12-01-2021,0.19,Low Risk
+merch1230,Oconnor Ltd,food,east,14-06-2024,0.11,Low Risk
+merch1231,"Rodriguez, White and Walker",electronics,east,15-04-2024,0,Low Risk
+merch1232,Rodriguez LLC,electronics,south,13-01-2022,0.16,Low Risk
+merch1233,Sweeney-Park,transport,central,17-09-2022,0.28,Medium Risk
+merch1234,Walsh and Sons,apparel,east,21-05-2022,0.06,Low Risk
+merch1235,"Navarro, Foster and Conley",grocery,north,25-11-2021,0.05,Low Risk
+merch1236,Ramirez PLC,online,central,01-01-2025,0.25,Medium Risk
+merch1237,"Thompson, Stone and Hart",electronics,east,09-02-2023,0.12,Low Risk
+merch1238,Nelson-Parker,transport,south,29-09-2020,0,Low Risk
+merch1239,Stone Inc,food,east,30-06-2021,0.09,Low Risk
+merch1240,"Mendoza, Smith and Scott",food,east,01-11-2022,0.2,Medium Risk
+merch1241,Jensen-Sweeney,online,west,29-02-2024,0.15,Low Risk
+merch1242,"Humphrey, Rodriguez and Beck",apparel,south,09-04-2025,0.37,Medium Risk
+merch1243,"Mclaughlin, Scott and Bell",online,east,28-11-2023,0,Low Risk
+merch1244,Leblanc PLC,electronics,east,03-04-2025,0.15,Low Risk
+merch1245,West Group,online,north,17-10-2021,0.26,Medium Risk
+merch1246,Edwards and Sons,apparel,north,11-10-2023,0.21,Medium Risk
+merch1247,Hall-Davis,electronics,south,01-11-2021,0.04,Low Risk
+merch1248,Thomas-Stewart,apparel,central,13-08-2023,0.08,Low Risk
+merch1249,"Fuentes, Garcia and Mendez",electronics,central,13-11-2024,0.08,Low Risk
+merch1250,Kline PLC,electronics,central,23-12-2022,0.28,Medium Risk
+merch1251,"Bush, Smith and Crawford",food,east,15-12-2021,0.39,Medium Risk
+merch1252,Franklin LLC,grocery,east,29-06-2023,0.02,Low Risk
+merch1253,"Cooper, Pierce and Collins",apparel,north,28-08-2020,0.17,Low Risk
+merch1254,Perkins-Ballard,grocery,west,22-06-2021,0.21,Medium Risk
+merch1255,Williams Group,apparel,south,24-01-2025,0.17,Low Risk
+merch1256,Torres Ltd,online,central,11-06-2024,0.21,Medium Risk
+merch1257,"Shields, Sexton and Petersen",apparel,east,16-01-2022,0.01,Low Risk
+merch1258,Steele Group,grocery,central,03-11-2024,0.15,Low Risk
+merch1259,"Bailey, Johnson and Snyder",food,north,17-05-2024,0.32,Medium Risk
+merch1260,"Swanson, Riley and Boyd",transport,east,06-02-2025,0.28,Medium Risk
+merch1261,"Gardner, Wright and Wong",grocery,north,19-08-2022,0.11,Low Risk
+merch1262,Collins-Craig,online,west,06-01-2024,0.2,Medium Risk
+merch1263,"Leonard, Washington and Rodriguez",online,central,11-03-2024,0.47,Medium Risk
+merch1264,"Hughes, Alvarez and Rivera",electronics,south,17-07-2023,0,Low Risk
+merch1265,Singh-Hanson,food,west,16-04-2021,0.31,Medium Risk
+merch1266,"White, Carter and Long",apparel,central,29-09-2020,0.1,Low Risk
+merch1267,Rodriguez Inc,food,central,15-12-2022,0.09,Low Risk
+merch1268,Ortiz and Sons,transport,east,08-04-2021,0.09,Low Risk
+merch1269,Faulkner and Sons,online,south,14-02-2024,0.07,Low Risk
+merch1270,"Dominguez, Luna and Bryan",transport,west,08-04-2024,0.25,Medium Risk
+merch1271,Watkins-Patton,transport,east,01-05-2025,0.27,Medium Risk
+merch1272,"Singh, Murphy and Lee",online,south,23-01-2022,0.28,Medium Risk
+merch1273,Martinez-Mahoney,food,west,09-03-2025,0.15,Low Risk
+merch1274,Jones-Garcia,online,north,21-12-2024,0.14,Low Risk
+merch1275,Santiago-Stevens,electronics,north,12-09-2022,0.09,Low Risk
+merch1276,Manning LLC,electronics,south,16-06-2024,0.17,Low Risk
+merch1277,Holder-Camacho,food,south,01-06-2021,0.08,Low Risk
+merch1278,Brown-Bryant,electronics,east,17-08-2021,0.06,Low Risk
+merch1279,"Elliott, Craig and Morales",online,east,14-01-2023,0.04,Low Risk
+merch1280,"Davis, Kelly and Sanchez",apparel,central,11-02-2024,0,Low Risk
+merch1281,Bryant Ltd,electronics,east,11-02-2024,0.11,Low Risk
+merch1282,"Warren, Montoya and Hodge",grocery,south,05-01-2023,0.42,Medium Risk
+merch1283,"Harper, Doyle and Fernandez",grocery,west,16-10-2022,0.35,Medium Risk
+merch1284,Hart-Perez,online,east,23-06-2023,0.2,Medium Risk
+merch1285,Ortiz and Sons,transport,west,02-04-2022,0.3,Medium Risk
+merch1286,"Harper, Jimenez and Curtis",transport,central,13-10-2024,0.08,Low Risk
+merch1287,"Murray, Valentine and Wiley",electronics,west,03-07-2023,0.21,Medium Risk
+merch1288,Williamson-Williams,electronics,west,04-07-2022,0.08,Low Risk
+merch1289,Bryan Ltd,food,east,17-03-2024,0.26,Medium Risk
+merch1290,Benjamin Inc,food,north,04-01-2022,0.32,Medium Risk
+merch1291,"Randolph, Soto and Wells",electronics,central,24-07-2025,0.2,Medium Risk
+merch1292,Ho PLC,electronics,south,30-12-2022,0.49,Medium Risk
+merch1293,Cooper LLC,apparel,north,28-11-2022,0.09,Low Risk
+merch1294,Burke Ltd,online,north,01-01-2025,0.12,Low Risk
+merch1295,"Davenport, Wilson and Allen",apparel,west,19-01-2023,0.06,Low Risk
+merch1296,Watson PLC,food,north,17-10-2021,0.12,Low Risk
+merch1297,Baker-Thompson,food,north,25-04-2023,0.09,Low Risk
+merch1298,Anthony-Hanson,apparel,east,20-11-2020,0.12,Low Risk
+merch1299,Diaz-Duran,electronics,south,08-01-2023,0.36,Medium Risk
+merch1300,"Young, Davies and Miller",electronics,central,14-02-2025,0.28,Medium Risk
+merch1301,Koch-Miller,apparel,south,23-10-2020,0.18,Low Risk
+merch1302,Green-Horton,electronics,north,02-12-2021,0.48,Medium Risk
+merch1303,Newman-Thompson,transport,east,22-10-2024,0.28,Medium Risk
+merch1304,"Brown, James and Gonzalez",food,north,19-12-2023,0.12,Low Risk
+merch1305,"Ortiz, Gordon and Lutz",electronics,east,01-01-2022,0.29,Medium Risk
+merch1306,Steele PLC,transport,east,23-09-2021,0.27,Medium Risk
+merch1307,Mcconnell Ltd,apparel,central,08-10-2023,0.33,Medium Risk
+merch1308,Watkins Group,transport,south,23-11-2024,0.22,Medium Risk
+merch1309,"Cooper, Harper and Kim",apparel,north,18-12-2020,0.14,Low Risk
+merch1310,Donaldson-Patel,apparel,north,11-11-2024,0.02,Low Risk
+merch1311,Cooper Inc,electronics,north,30-08-2021,0.12,Low Risk
+merch1312,Smith-Davis,transport,south,27-12-2022,0.27,Medium Risk
+merch1313,"Scott, Rogers and Morales",online,south,26-03-2022,0.34,Medium Risk
+merch1314,Ortiz PLC,electronics,east,24-03-2021,0,Low Risk
+merch1315,Robertson-Wallace,electronics,north,15-07-2023,0.27,Medium Risk
+merch1316,Watson-Morgan,transport,north,09-08-2021,0.18,Low Risk
+merch1317,Schneider-Williams,food,east,20-07-2021,0.18,Low Risk
+merch1318,"Rodriguez, Doyle and Russell",online,north,24-11-2022,0.17,Low Risk
+merch1319,Diaz-Davis,online,central,11-09-2023,0.25,Medium Risk
+merch1320,Rivas LLC,transport,south,18-02-2024,0,Low Risk
+merch1321,Robertson PLC,electronics,east,03-04-2022,0.22,Medium Risk
+merch1322,Knox Group,electronics,south,28-05-2024,0.03,Low Risk
+merch1323,Arroyo LLC,grocery,central,09-09-2023,0.11,Low Risk
+merch1324,"Thompson, Miller and Richard",grocery,east,17-03-2023,0.25,Medium Risk
+merch1325,Baker and Sons,apparel,north,09-09-2024,0.16,Low Risk
+merch1326,Johnson-Gonzales,grocery,west,11-09-2021,0.2,Medium Risk
+merch1327,Johnson-Martin,apparel,west,26-09-2021,0,Low Risk
+merch1328,"Daniels, Velasquez and Jones",food,north,20-06-2025,0.06,Low Risk
+merch1329,"Hurst, Jackson and Nguyen",grocery,south,18-05-2025,0.14,Low Risk
+merch1330,Reed-Elliott,online,east,05-11-2024,0.24,Medium Risk
+merch1331,Jordan-Henry,online,central,04-03-2024,0.28,Medium Risk
+merch1332,Hardy-Cochran,grocery,south,07-11-2023,0.28,Medium Risk
+merch1333,Garcia Group,grocery,central,24-09-2020,0.05,Low Risk
+merch1334,"Baird, Alvarado and Smith",food,west,06-01-2021,0.35,Medium Risk
+merch1335,Cox PLC,online,central,08-02-2022,0.2,Medium Risk
+merch1336,Saunders-Mcclure,electronics,central,20-08-2021,0.26,Medium Risk
+merch1337,Long-Briggs,transport,central,15-03-2022,0.18,Low Risk
+merch1338,Henson Ltd,apparel,east,05-07-2023,0.21,Medium Risk
+merch1339,Rasmussen-Smith,apparel,central,23-09-2024,0.34,Medium Risk
+merch1340,Torres LLC,online,south,29-08-2023,0.32,Medium Risk
+merch1341,Powers-Taylor,apparel,central,23-03-2024,0.14,Low Risk
+merch1342,Miller-Moore,transport,north,21-10-2023,0.34,Medium Risk
+merch1343,Perez Ltd,grocery,north,10-01-2025,0.13,Low Risk
+merch1344,Wright and Sons,apparel,east,10-12-2023,0.29,Medium Risk
+merch1345,Reid and Sons,online,north,24-03-2022,0.18,Low Risk
+merch1346,Davis-Lopez,electronics,west,24-03-2023,0.22,Medium Risk
+merch1347,Gaines Group,electronics,north,26-04-2021,0.11,Low Risk
+merch1348,"Ferguson, Brown and Potter",apparel,east,15-08-2024,0.08,Low Risk
+merch1349,Reilly and Sons,grocery,east,31-05-2024,0.24,Medium Risk
+merch1350,Cook-Wilkerson,apparel,west,29-09-2022,0.08,Low Risk
+merch1351,Klein Inc,transport,east,30-04-2021,0.31,Medium Risk
+merch1352,"Weeks, Carroll and Leblanc",food,north,20-10-2020,0.19,Low Risk
+merch1353,"Allen, Guerrero and Tapia",food,south,06-08-2020,0.05,Low Risk
+merch1354,Bates and Sons,online,west,10-06-2025,0.24,Medium Risk
+merch1355,"Terry, Ponce and Williamson",apparel,west,16-06-2024,0.28,Medium Risk
+merch1356,"Watson, Chavez and Coleman",food,central,06-12-2021,0.22,Medium Risk
+merch1357,"Davis, Lopez and Anderson",apparel,north,02-02-2024,0.12,Low Risk
+merch1358,Malone-Willis,electronics,south,26-07-2021,0.08,Low Risk
+merch1359,Brooks-Hampton,transport,central,22-02-2021,0.04,Low Risk
+merch1360,Sheppard PLC,food,west,02-04-2025,0.14,Low Risk
+merch1361,Jones-Holland,online,central,26-01-2023,0.12,Low Risk
+merch1362,Morrison-Rhodes,grocery,central,13-04-2022,0.17,Low Risk
+merch1363,"Branch, Hart and Rogers",apparel,west,26-07-2021,0.31,Medium Risk
+merch1364,Taylor LLC,transport,central,23-05-2023,0.23,Medium Risk
+merch1365,"Mcintyre, Rivera and Watson",electronics,central,25-03-2023,0.22,Medium Risk
+merch1366,"Burton, Mora and Dixon",apparel,central,14-11-2020,0.22,Medium Risk
+merch1367,"Payne, Williams and Burgess",online,west,16-03-2023,0.2,Medium Risk
+merch1368,Thomas-Pacheco,grocery,east,04-03-2023,0.11,Low Risk
+merch1369,Fleming-Stewart,food,west,02-04-2025,0.16,Low Risk
+merch1370,Carr Inc,online,east,14-11-2022,0.09,Low Risk
+merch1371,Williams LLC,online,north,11-11-2020,0.1,Low Risk
+merch1372,Cole Inc,grocery,south,06-05-2022,0,Low Risk
+merch1373,Martin-Mccarty,electronics,west,25-04-2024,0.08,Low Risk
+merch1374,Zhang and Sons,online,south,20-06-2023,0.13,Low Risk
+merch1375,"Serrano, Guerrero and Anderson",online,north,20-07-2022,0.17,Low Risk
+merch1376,"Ramos, Smith and Davis",electronics,east,02-02-2022,0.27,Medium Risk
+merch1377,Olson Ltd,apparel,south,24-04-2025,0.29,Medium Risk
+merch1378,Jackson-Robinson,transport,north,12-03-2021,0.13,Low Risk
+merch1379,Dawson-Moran,food,west,10-11-2020,0.22,Medium Risk
+merch1380,Miller Group,apparel,central,05-01-2023,0.22,Medium Risk
+merch1381,Gillespie LLC,apparel,north,11-10-2022,0.29,Medium Risk
+merch1382,Lin-Flynn,food,north,11-05-2023,0.19,Low Risk
+merch1383,Bauer-Henry,food,east,10-01-2021,0.13,Low Risk
+merch1384,"Eaton, Brooks and Harris",grocery,east,05-10-2022,0.25,Medium Risk
+merch1385,Kelly-Harper,food,central,12-11-2023,0.2,Medium Risk
+merch1386,"Young, Moore and Lawrence",electronics,north,17-11-2023,0.04,Low Risk
+merch1387,Schwartz Inc,food,north,16-10-2024,0.01,Low Risk
+merch1388,Elliott-Rice,grocery,south,05-09-2022,0.09,Low Risk
+merch1389,Johnson Inc,grocery,west,11-02-2021,0.02,Low Risk
+merch1390,Reeves Inc,electronics,north,11-10-2020,0.21,Medium Risk
+merch1391,"Ward, Sanchez and Yu",transport,west,24-11-2023,0.35,Medium Risk
+merch1392,"Thompson, Harris and Williams",online,south,04-08-2023,0,Low Risk
+merch1393,Berger LLC,online,north,06-04-2025,0,Low Risk
+merch1394,"Cruz, Pena and Farrell",online,central,17-06-2022,0.17,Low Risk
+merch1395,Miller LLC,food,west,01-07-2022,0.18,Low Risk
+merch1396,Johnson-Valentine,transport,north,06-04-2022,0,Low Risk
+merch1397,Ward-Bell,apparel,north,03-02-2022,0.06,Low Risk
+merch1398,Thompson-Morris,grocery,west,11-03-2024,0.13,Low Risk
+merch1399,Benton-Luna,online,central,02-02-2021,0.14,Low Risk
+merch1400,Hanson and Sons,electronics,north,21-09-2020,0.01,Low Risk
+merch1401,Jones and Sons,online,east,03-02-2022,0.01,Low Risk
+merch1402,Davis-Johnson,online,south,11-05-2023,0.25,Medium Risk
+merch1403,Williams PLC,electronics,central,28-01-2023,0.12,Low Risk
+merch1404,Riley and Sons,online,west,11-11-2021,0.44,Medium Risk
+merch1405,"Vega, Espinoza and Green",transport,east,29-10-2022,0.25,Medium Risk
+merch1406,Curtis-Silva,online,north,13-12-2024,0.35,Medium Risk
+merch1407,Parsons LLC,electronics,north,06-09-2024,0,Low Risk
+merch1408,Norman-Brown,electronics,east,20-12-2021,0.34,Medium Risk
+merch1409,Johnson PLC,online,west,23-07-2024,0.18,Low Risk
+merch1410,"Jackson, Cooper and Newman",electronics,west,12-12-2022,0.01,Low Risk
+merch1411,Krause-Ashley,online,north,22-06-2025,0.07,Low Risk
+merch1412,"Morgan, Gardner and Hamilton",online,central,19-03-2025,0,Low Risk
+merch1413,"Vaughan, Stein and Schmitt",food,west,29-06-2024,0.11,Low Risk
+merch1414,"Kirby, Erickson and Schwartz",apparel,central,19-02-2021,0.16,Low Risk
+merch1415,Allen-Mack,transport,north,09-09-2022,0.02,Low Risk
+merch1416,"Nelson, Wolfe and Webb",grocery,west,05-02-2022,0.35,Medium Risk
+merch1417,Parsons-Hudson,transport,east,25-09-2020,0.17,Low Risk
+merch1418,Greene Inc,grocery,north,30-11-2020,0.22,Medium Risk
+merch1419,Johnson LLC,apparel,central,12-05-2025,0.08,Low Risk
+merch1420,Robertson and Sons,food,north,19-06-2021,0.2,Medium Risk
+merch1421,"Davis, Kim and Brown",transport,central,16-10-2022,0.21,Medium Risk
+merch1422,Rivera and Sons,apparel,east,02-02-2025,0.29,Medium Risk
+merch1423,Thompson Inc,electronics,west,16-02-2022,0.17,Low Risk
+merch1424,Drake Ltd,food,east,27-09-2024,0.19,Low Risk
+merch1425,"Simmons, Smith and Thomas",transport,east,08-05-2022,0.13,Low Risk
+merch1426,Oconnor-Fisher,grocery,south,26-01-2022,0.11,Low Risk
+merch1427,"Evans, Harris and Fuentes",apparel,central,03-10-2022,0.23,Medium Risk
+merch1428,"Williams, Obrien and Brooks",electronics,south,06-05-2023,0.27,Medium Risk
+merch1429,"Barrett, Ramirez and Cross",online,north,28-05-2025,0,Low Risk
+merch1430,Davis-Berry,online,south,06-11-2024,0.41,Medium Risk
+merch1431,"Larson, Gonzalez and Lara",online,east,10-06-2024,0.13,Low Risk
+merch1432,"Reese, Williamson and Hudson",transport,south,26-02-2025,0.14,Low Risk
+merch1433,Mccoy PLC,transport,west,30-03-2024,0.23,Medium Risk
+merch1434,Montgomery-Castaneda,grocery,east,26-08-2020,0.18,Low Risk
+merch1435,Evans LLC,transport,central,01-05-2022,0.08,Low Risk
+merch1436,"Lambert, Moore and Young",electronics,west,11-06-2023,0.46,Medium Risk
+merch1437,Turner-Jackson,apparel,north,29-12-2021,0.16,Low Risk
+merch1438,Valdez Group,transport,north,01-06-2022,0.31,Medium Risk
+merch1439,Russo Ltd,transport,west,17-10-2023,0.14,Low Risk
+merch1440,Jones PLC,electronics,south,06-08-2024,0.1,Low Risk
+merch1441,"Smith, Mays and Wheeler",grocery,central,06-05-2022,0.12,Low Risk
+merch1442,Bauer Group,transport,north,02-11-2022,0.22,Medium Risk
+merch1443,Jones-Fox,transport,south,25-03-2024,0.14,Low Risk
+merch1444,"Thompson, Young and Conley",electronics,central,27-03-2022,0.14,Low Risk
+merch1445,Soto-Robinson,transport,west,13-01-2022,0.26,Medium Risk
+merch1446,Taylor Inc,electronics,east,02-10-2021,0.09,Low Risk
+merch1447,Mills and Sons,electronics,east,30-07-2025,0.27,Medium Risk
+merch1448,Wright-Smith,apparel,east,07-01-2021,0.3,Medium Risk
+merch1449,Hinton Group,apparel,north,13-08-2023,0.18,Low Risk
+merch1450,Yates-Malone,food,west,07-08-2023,0.16,Low Risk
+merch1451,"Cervantes, Watkins and Lozano",grocery,east,07-09-2022,0.08,Low Risk
+merch1452,Scott-Williams,food,south,15-03-2021,0.14,Low Risk
+merch1453,Carr PLC,apparel,west,14-09-2023,0.08,Low Risk
+merch1454,"Walsh, Morris and Gray",apparel,west,03-07-2023,0.26,Medium Risk
+merch1455,Powell Inc,food,west,20-12-2021,0.24,Medium Risk
+merch1456,"Hubbard, Padilla and Herrera",grocery,west,19-12-2023,0.16,Low Risk
+merch1457,Walls-Wells,grocery,north,02-05-2024,0.38,Medium Risk
+merch1458,Holmes LLC,electronics,east,16-09-2020,0.11,Low Risk
+merch1459,Brown Inc,online,west,25-12-2022,0.24,Medium Risk
+merch1460,"Williamson, Burns and Harris",apparel,west,12-02-2024,0.23,Medium Risk
+merch1461,Brown LLC,grocery,west,06-02-2025,0,Low Risk
+merch1462,Baker-Bowers,electronics,north,11-09-2023,0.18,Low Risk
+merch1463,Allen-Campos,electronics,east,12-03-2021,0.24,Medium Risk
+merch1464,Mcfarland Group,online,west,14-08-2023,0.07,Low Risk
+merch1465,"Wilson, Henry and Brown",transport,central,28-01-2023,0.22,Medium Risk
+merch1466,Zimmerman PLC,food,central,17-08-2024,0.16,Low Risk
+merch1467,Smith-Owens,apparel,east,20-01-2021,0.06,Low Risk
+merch1468,Nguyen LLC,electronics,central,14-09-2023,0.38,Medium Risk
+merch1469,"Turner, Schwartz and Powell",electronics,west,15-12-2024,0.22,Medium Risk
+merch1470,"Williams, Guzman and Blackwell",apparel,north,23-05-2022,0.2,Medium Risk
+merch1471,Armstrong-Brown,apparel,east,10-03-2025,0.5,High Risk
+merch1472,Castro-Gilbert,food,north,03-04-2022,0.1,Low Risk
+merch1473,"Reeves, Guzman and Perry",apparel,north,06-01-2022,0.04,Low Risk
+merch1474,Coleman Inc,transport,north,21-04-2022,0.11,Low Risk
+merch1475,"Kaiser, Bradford and Park",food,east,13-08-2020,0.06,Low Risk
+merch1476,"Graves, Reyes and Schmidt",grocery,east,24-08-2022,0.2,Medium Risk
+merch1477,Jones-Blanchard,apparel,west,28-02-2023,0.26,Medium Risk
+merch1478,Hoffman-Trujillo,online,central,08-10-2022,0,Low Risk
+merch1479,"Mitchell, Davis and Green",online,south,29-04-2023,0.13,Low Risk
+merch1480,Frazier-Alexander,electronics,central,18-09-2022,0.03,Low Risk
+merch1481,Lara-Holden,apparel,south,10-06-2023,0.19,Low Risk
+merch1482,Jordan PLC,electronics,east,16-05-2023,0.09,Low Risk
+merch1483,Bautista-Bishop,online,north,03-02-2025,0.25,Medium Risk
+merch1484,"Hicks, Powell and Sanchez",grocery,west,10-07-2025,0.03,Low Risk
+merch1485,Burnett-Stevens,apparel,central,21-02-2023,0.05,Low Risk
+merch1486,Floyd Ltd,apparel,central,27-05-2021,0.04,Low Risk
+merch1487,Smith-Morrison,apparel,east,01-06-2022,0.31,Medium Risk
+merch1488,Medina-Kelley,grocery,south,22-04-2025,0.45,Medium Risk
+merch1489,Collins-Roberts,grocery,north,04-08-2025,0.16,Low Risk
+merch1490,"Browning, Spencer and Guerra",food,south,26-10-2024,0.09,Low Risk
+merch1491,"Gaines, Frye and Cunningham",online,south,23-03-2022,0,Low Risk
+merch1492,"Wagner, Lewis and Freeman",food,central,08-10-2024,0.34,Medium Risk
+merch1493,Barnes Ltd,apparel,north,03-03-2024,0.17,Low Risk
+merch1494,Johnson Inc,food,west,08-10-2021,0.05,Low Risk
+merch1495,Daniels-Brown,grocery,east,10-09-2022,0.29,Medium Risk
+merch1496,"Jones, Rodriguez and Pierce",online,south,26-01-2024,0.07,Low Risk
+merch1497,Boyd-Miller,online,south,07-06-2022,0.14,Low Risk
+merch1498,"Ho, Taylor and Valentine",electronics,east,21-06-2024,0,Low Risk
+merch1499,"Schmidt, Davis and Oconnor",electronics,north,06-04-2021,0.2,Medium Risk
