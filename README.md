@@ -22,7 +22,7 @@ The project explores adoption patterns, transaction volumes, user behavior, and 
 
 ## Dashboard Access
 You can view the live dashboard here:  
-[UPI Analysis Dashboard](https://me-vikash-kumar.github.io/UPI_Analysis_Capstone_Project/index.html)
+[UPI Analysis Dashboard](https://me-vikash-kumar.github.io/UPI-Analysis/index.html)
 
 ---
 
