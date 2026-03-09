@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPI Analytics Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e17;
+    --surface: #111827;
+    --surface2: #1a2234;
+    --border: #1e2d45;
+    --accent: #00e5ff;
+    --accent2: #ff6b35;
+    --accent3: #a855f7;
+    --accent4: #22c55e;
+    --text: #e2e8f0;
+    --text-dim: #64748b;
+    --text-muted: #94a3b8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 28px 24px; }
+
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-left h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #fff;
+  }
+
+  .header-left h1 span { color: var(--accent); }
+
+  .header-left p {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    margin-top: 6px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .header-right {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .badge-live { background: rgba(34,197,94,0.1); color: var(--accent4); border: 1px solid rgba(34,197,94,0.2); }
+  .badge-live::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent4); animation: pulse 2s infinite; }
+
+  .badge-date { background: rgba(0,229,255,0.06); color: var(--text-muted); border: 1px solid var(--border); }
+
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  /* Nav tabs */
+  .nav-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px;
+    width: fit-content;
+  }
+
+  .tab-btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-dim);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tab-btn.active {
+    background: var(--accent);
+    color: #000;
+    font-weight: 500;
+  }
+
+  .tab-btn:not(.active):hover { color: var(--text); background: var(--surface2); }
+
+  /* Sections */
+  .section { display: none; }
+  .section.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* KPI Grid */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .kpi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .kpi-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  .kpi-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  .kpi-card.cyan::after { background: var(--accent); }
+  .kpi-card.orange::after { background: var(--accent2); }
+  .kpi-card.purple::after { background: var(--accent3); }
+  .kpi-card.green::after { background: var(--accent4); }
+
+  .kpi-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+
+  .kpi-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .kpi-sub {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+
+  .kpi-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.63rem;
+    font-weight: 500;
+    margin-top: 6px;
+  }
+
+  .kpi-badge.up { background: rgba(34,197,94,0.12); color: var(--accent4); }
+  .kpi-badge.down { background: rgba(255,107,53,0.12); color: var(--accent2); }
+  .kpi-badge.warn { background: rgba(168,85,247,0.12); color: var(--accent3); }
+
+  /* Chart grid */
+  .chart-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .chart-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .chart-grid-full { margin-bottom: 16px; }
+  .chart-grid-6535 { display: grid; grid-template-columns: 65fr 35fr; gap: 16px; margin-bottom: 16px; }
+  .chart-grid-3565 { display: grid; grid-template-columns: 35fr 65fr; gap: 16px; margin-bottom: 16px; }
+
+  /* Card */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    display: inline-block; margin-right: 8px;
+  }
+
+  .canvas-wrap { position: relative; }
+
+  /* Stat rows */
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.75rem;
+  }
+
+  .stat-row:last-child { border-bottom: none; }
+
+  .stat-row .label { color: var(--text-muted); }
+  .stat-row .val { color: #fff; font-weight: 500; }
+
+  /* Progress bars */
+  .progress-item { margin-bottom: 14px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-bottom: 6px; }
+  .progress-track { height: 5px; background: var(--surface2); border-radius: 99px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 99px; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+
+  /* Table */
+  .mini-table { width: 100%; border-collapse: collapse; font-size: 0.72rem; }
+  .mini-table th { color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.63rem; padding: 0 0 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  .mini-table td { padding: 9px 0; border-bottom: 1px solid rgba(30,45,69,0.6); color: var(--text-muted); }
+  .mini-table td:last-child { color: #fff; text-align: right; }
+  .mini-table tr:last-child td { border-bottom: none; }
+
+  /* Alert type pill */
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .pill-red { background: rgba(239,68,68,0.12); color: #ef4444; }
+  .pill-yellow { background: rgba(234,179,8,0.12); color: #eab308; }
+  .pill-cyan { background: rgba(0,229,255,0.1); color: var(--accent); }
+  .pill-purple { background: rgba(168,85,247,0.12); color: var(--accent3); }
+  .pill-green { background: rgba(34,197,94,0.1); color: var(--accent4); }
+  .pill-orange { background: rgba(255,107,53,0.1); color: var(--accent2); }
+
+  /* Score ring */
+  .score-ring-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 10px 0; }
+  .score-ring { position: relative; width: 140px; height: 140px; }
+  .score-ring svg { transform: rotate(-90deg); }
+  .score-ring-val { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .score-ring-val .num { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; color: #fff; }
+  .score-ring-val .lbl { font-size: 0.6rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .chart-grid-2, .chart-grid-3, .chart-grid-6535, .chart-grid-3565 { grid-template-columns: 1fr; }
+    header { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <h1>UPI <span>Analytics</span> Dashboard</h1>
+      <p>Payment Intelligence &nbsp;·&nbsp; 100K Transactions &nbsp;·&nbsp; 10K Customers</p>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-live">Live</span>
+      <span class="badge badge-date">📅 Mar 2026</span>
+    </div>
+  </header>
+
+  <!-- TABS -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+    <button class="tab-btn" onclick="showTab('transactions')">Transactions</button>
+    <button class="tab-btn" onclick="showTab('fraud')">Fraud & Alerts</button>
+    <button class="tab-btn" onclick="showTab('customers')">Customers</button>
+    <button class="tab-btn" onclick="showTab('merchants')">Merchants</button>
+  </div>
+
+  <!-- ===== OVERVIEW ===== -->
+  <div id="overview" class="section active">
+    <div class="kpi-grid">
+      <div class="kpi-card cyan">
+        <div class="kpi-label">Total Transactions</div>
+        <div class="kpi-value">100K</div>
+        <div class="kpi-sub">₹42.4L total volume</div>
+        <span class="kpi-badge up">↑ 92.1% success rate</span>
+      </div>
+      <div class="kpi-card orange">
+        <div class="kpi-label">Fraud Flagged</div>
+        <div class="kpi-value">2,000</div>
+        <div class="kpi-sub">2% of all transactions</div>
+        <span class="kpi-badge down">⚠ 2K active alerts</span>
+      </div>
+      <div class="kpi-card purple">
+        <div class="kpi-label">Active Customers</div>
+        <div class="kpi-value">10K</div>
+        <div class="kpi-sub">10.1% business users</div>
+        <span class="kpi-badge warn">5 regions covered</span>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">Avg Satisfaction</div>
+        <div class="kpi-value">3.61</div>
+        <div class="kpi-sub">Out of 5 · 4K surveys</div>
+        <span class="kpi-badge up">87.6% alerts resolved</span>
+      </div>
+    </div>
+
+    <div class="chart-grid-6535">
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent)"></span>Transaction Status Breakdown</span></div>
+        <div class="canvas-wrap"><canvas id="txnStatusBar" height="200"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent2)"></span>Payment Channels</span></div>
+        <div class="canvas-wrap"><canvas id="channelDonut" height="200"></canvas></div>
+      </div>
+    </div>
+
+    <div class="chart-grid-3">
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent3)"></span>Transaction Types</span></div>
+        <div class="canvas-wrap"><canvas id="txnTypeBar" height="200"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent4)"></span>Customer Age Groups</span></div>
+        <div class="canvas-wrap"><canvas id="ageDonut" height="200"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent)"></span>Device OS Share</span></div>
+        <div class="canvas-wrap"><canvas id="deviceDonut" height="200"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TRANSACTIONS ===== -->
+  <div id="transactions" class="section">
+    <div class="kpi-grid">
+      <div class="kpi-card cyan">
+        <div class="kpi-label">Success Rate</div>
+        <div class="kpi-value">92.1%</div>
+        <div class="kpi-sub">92,140 successful</div>
+        <span class="kpi-badge up">↑ Strong performance</span>
+      </div>
+      <div class="kpi-card orange">
+        <div class="kpi-label">Failed Txns</div>
+        <div class="kpi-value">5,871</div>
+        <div class="kpi-sub">5.87% failure rate</div>
+        <span class="kpi-badge down">Needs attention</span>
+      </div>
+      <div class="kpi-card purple">
+        <div class="kpi-label">Avg Txn Value</div>
+        <div class="kpi-value">₹42.4</div>
+        <div class="kpi-sub">Total: ₹42.4 Lakhs</div>
+        <span class="kpi-badge warn">Avg per transaction</span>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">Pending Txns</div>
+        <div class="kpi-value">1,989</div>
+        <div class="kpi-sub">1.99% in pending state</div>
+        <span class="kpi-badge up">Low backlog</span>
+      </div>
+    </div>
+
+    <div class="chart-grid-2">
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent)"></span>Transaction Volume by Type</span></div>
+        <div class="canvas-wrap"><canvas id="txnVolType" height="220"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent2)"></span>Status Distribution</span></div>
+        <div class="canvas-wrap"><canvas id="statusPie" height="220"></canvas></div>
+      </div>
+    </div>
+
+    <div class="chart-grid-3565">
+      <div class="card">
+        <div class="card-title">Channel Stats</div>
+        <div style="padding-top:8px">
+          <div class="progress-item">
+            <div class="progress-label"><span>App</span><span>33,365</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:33.4%;background:var(--accent)"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Intent</span><span>33,356</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:33.4%;background:var(--accent3)"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>QR Code</span><span>33,279</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:33.3%;background:var(--accent2)"></div></div>
+          </div>
+        </div>
+        <div style="height:16px"></div>
+        <div class="card-title" style="margin-bottom:12px">UPI Bank Distribution</div>
+        <table class="mini-table">
+          <thead><tr><th>Bank</th><th>Accounts</th></tr></thead>
+          <tbody>
+            <tr><td>SBI</td><td>2,036</td></tr>
+            <tr><td>Kotak</td><td>2,010</td></tr>
+            <tr><td>ICICI</td><td>2,001</td></tr>
+            <tr><td>PNB</td><td>1,992</td></tr>
+            <tr><td>HDFC</td><td>1,990</td></tr>
+            <tr><td>Axis</td><td>1,971</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent4)"></span>Bank Account Share</span></div>
+        <div class="canvas-wrap"><canvas id="bankBar" height="260"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FRAUD ===== -->
+  <div id="fraud" class="section">
+    <div class="kpi-grid">
+      <div class="kpi-card orange">
+        <div class="kpi-label">Total Alerts</div>
+        <div class="kpi-value">2,000</div>
+        <div class="kpi-sub">Across all alert types</div>
+        <span class="kpi-badge down">Active monitoring</span>
+      </div>
+      <div class="kpi-card cyan">
+        <div class="kpi-label">Resolved Alerts</div>
+        <div class="kpi-value">1,752</div>
+        <div class="kpi-sub">87.6% resolution rate</div>
+        <span class="kpi-badge up">↑ High resolution</span>
+      </div>
+      <div class="kpi-card purple">
+        <div class="kpi-label">Fraud Flagged Txns</div>
+        <div class="kpi-value">2,000</div>
+        <div class="kpi-sub">2% fraud rate overall</div>
+        <span class="kpi-badge warn">⚠ Needs review</span>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">Rooted Devices</div>
+        <div class="kpi-value">370</div>
+        <div class="kpi-sub">3.1% of all devices</div>
+        <span class="kpi-badge up">Low risk exposure</span>
+      </div>
+    </div>
+
+    <div class="chart-grid-2">
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent2)"></span>Alert Type Distribution</span></div>
+        <div class="canvas-wrap"><canvas id="alertTypeChart" height="220"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent3)"></span>Alert Resolution Status</span></div>
+        <div class="canvas-wrap"><canvas id="alertResChart" height="220"></canvas></div>
+      </div>
+    </div>
+
+    <div class="chart-grid-2">
+      <div class="card">
+        <div class="card-title">Fraud Alert Types — Detail</div>
+        <table class="mini-table">
+          <thead><tr><th>Alert Type</th><th>Count</th><th>Share</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Unusual Time</td><td>507</td><td>25.4%</td><td><span class="pill pill-yellow">Watch</span></td></tr>
+            <tr><td>Frequent Failure</td><td>501</td><td>25.1%</td><td><span class="pill pill-red">Critical</span></td></tr>
+            <tr><td>Suspicious Login</td><td>498</td><td>24.9%</td><td><span class="pill pill-red">Critical</span></td></tr>
+            <tr><td>Unusual Amount</td><td>494</td><td>24.7%</td><td><span class="pill pill-yellow">Watch</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Customer Feedback — Issue Types</div>
+        <div style="padding-top:4px">
+          <div class="progress-item">
+            <div class="progress-label"><span>Transaction Issues</span><span>2,025 (50.6%)</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:50.6%;background:var(--accent2)"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>App Usability</span><span>796 (19.9%)</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:19.9%;background:var(--accent3)"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Fraud Related</span><span>596 (14.9%)</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:14.9%;background:var(--accent)"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label"><span>Other</span><span>583 (14.6%)</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:14.6%;background:var(--text-dim)"></div></div>
+          </div>
+        </div>
+        <div style="height:20px"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border)">
+          <div>
+            <div class="kpi-label">Avg Satisfaction Score</div>
+            <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;color:#fff">3.61 <span style="font-size:0.9rem;color:var(--text-dim)">/ 5</span></div>
+          </div>
+          <div style="text-align:right">
+            <div class="kpi-label">Total Surveys</div>
+            <div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;color:var(--accent)">4,000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CUSTOMERS ===== -->
+  <div id="customers" class="section">
+    <div class="kpi-grid">
+      <div class="kpi-card cyan">
+        <div class="kpi-label">Total Customers</div>
+        <div class="kpi-value">10K</div>
+        <div class="kpi-sub">Across 5 regions</div>
+        <span class="kpi-badge up">Evenly distributed</span>
+      </div>
+      <div class="kpi-card orange">
+        <div class="kpi-label">Business Users</div>
+        <div class="kpi-value">1,012</div>
+        <div class="kpi-sub">10.1% of customers</div>
+        <span class="kpi-badge warn">B2B segment</span>
+      </div>
+      <div class="kpi-card purple">
+        <div class="kpi-label">Young Adults</div>
+        <div class="kpi-value">3,404</div>
+        <div class="kpi-sub">34% of user base</div>
+        <span class="kpi-badge up">Largest segment</span>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">Total Devices</div>
+        <div class="kpi-value">12K</div>
+        <div class="kpi-sub">370 rooted (3.1%)</div>
+        <span class="kpi-badge up">Low risk</span>
+      </div>
+    </div>
+
+    <div class="chart-grid-2">
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent)"></span>Customers by Region</span></div>
+        <div class="canvas-wrap"><canvas id="regionBar" height="220"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent3)"></span>Age Group Distribution</span></div>
+        <div class="canvas-wrap"><canvas id="ageBar" height="220"></canvas></div>
+      </div>
+    </div>
+
+    <div class="chart-grid-3">
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent4)"></span>Device OS Breakdown</span></div>
+        <div class="canvas-wrap"><canvas id="osBar" height="200"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent2)"></span>Account Types (UPI)</span></div>
+        <div class="canvas-wrap"><canvas id="acctTypeChart" height="200"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Customer Segments</div>
+        <table class="mini-table">
+          <thead><tr><th>Segment</th><th>Count</th><th>Share</th></tr></thead>
+          <tbody>
+            <tr><td>Adult (26–59)</td><td>4,676</td><td>46.8%</td></tr>
+            <tr><td>Young Adult (18–25)</td><td>3,404</td><td>34.0%</td></tr>
+            <tr><td>Senior (60+)</td><td>1,920</td><td>19.2%</td></tr>
+            <tr><td>Business Users</td><td>1,012</td><td>10.1%</td></tr>
+            <tr><td>Rooted Devices</td><td>370</td><td>3.1%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MERCHANTS ===== -->
+  <div id="merchants" class="section">
+    <div class="kpi-grid">
+      <div class="kpi-card cyan">
+        <div class="kpi-label">Total Merchants</div>
+        <div class="kpi-value">500</div>
+        <div class="kpi-sub">Across 6 categories</div>
+        <span class="kpi-badge up">Active network</span>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">Low Risk</div>
+        <div class="kpi-value">288</div>
+        <div class="kpi-sub">57.6% of merchants</div>
+        <span class="kpi-badge up">↑ Healthy mix</span>
+      </div>
+      <div class="kpi-card orange">
+        <div class="kpi-label">Medium Risk</div>
+        <div class="kpi-value">209</div>
+        <div class="kpi-sub">41.8% of merchants</div>
+        <span class="kpi-badge warn">Monitor closely</span>
+      </div>
+      <div class="kpi-card purple">
+        <div class="kpi-label">High Risk</div>
+        <div class="kpi-value">3</div>
+        <div class="kpi-sub">0.6% of merchants</div>
+        <span class="kpi-badge down">Immediate review</span>
+      </div>
+    </div>
+
+    <div class="chart-grid-2">
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent)"></span>Merchants by Category</span></div>
+        <div class="canvas-wrap"><canvas id="merchTypeChart" height="220"></canvas></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span><span class="dot" style="background:var(--accent2)"></span>Merchant Risk Profile</span></div>
+        <div class="canvas-wrap"><canvas id="merchRiskChart" height="220"></canvas></div>
+      </div>
+    </div>
+
+    <div class="chart-grid-2">
+      <div class="card">
+        <div class="card-title">Top Merchants by Transaction Volume</div>
+        <table class="mini-table">
+          <thead><tr><th>Merchant</th><th>Txns</th><th>Risk</th></tr></thead>
+          <tbody>
+            <tr><td>Donaldson-Patel</td><td>85</td><td><span class="pill pill-green">Low</span></td></tr>
+            <tr><td>Jones, Adams & Stanley</td><td>82</td><td><span class="pill pill-yellow">Medium</span></td></tr>
+            <tr><td>Perry, Stewart & Smith</td><td>82</td><td><span class="pill pill-green">Low</span></td></tr>
+            <tr><td>Graves, Reyes & Schmidt</td><td>81</td><td><span class="pill pill-green">Low</span></td></tr>
+            <tr><td>Brown-Jones</td><td>80</td><td><span class="pill pill-yellow">Medium</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Merchant Payment Transactions</div>
+        <div style="display:flex;flex-direction:column;gap:14px;padding-top:8px">
+          <div class="stat-row"><span class="label">Merchant Payments Total</span><span class="val">25,097</span></div>
+          <div class="stat-row"><span class="label">Share of All Transactions</span><span class="val">25.1%</span></div>
+          <div class="stat-row"><span class="label">Avg per Merchant</span><span class="val">~50.2 txns</span></div>
+          <div class="stat-row"><span class="label">High Risk Merchants</span><span class="val" style="color:var(--accent2)">3 (0.6%)</span></div>
+          <div class="stat-row"><span class="label">Medium Risk Merchants</span><span class="val" style="color:#eab308">209 (41.8%)</span></div>
+          <div class="stat-row"><span class="label">Low Risk Merchants</span><span class="val" style="color:var(--accent4)">288 (57.6%)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ─── CHART DEFAULTS ─────────────────────────────────────
+Chart.defaults.color = '#64748b';
+Chart.defaults.borderColor = '#1e2d45';
+Chart.defaults.font.family = "'DM Mono', monospace";
+Chart.defaults.font.size = 11;
+
+const CYAN = '#00e5ff', ORANGE = '#ff6b35', PURPLE = '#a855f7', GREEN = '#22c55e';
+const YELLOW = '#eab308', RED = '#ef4444', BLUE = '#3b82f6', PINK = '#ec4899';
+
+const barOpts = (horizontal = false) => ({
+  responsive: true, maintainAspectRatio: true,
+  indexAxis: horizontal ? 'y' : 'x',
+  plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed[horizontal ? 'x' : 'y'].toLocaleString()}` } } },
+  scales: {
+    x: { grid: { color: '#1e2d45' }, ticks: { color: '#64748b' }, border: { color: '#1e2d45' } },
+    y: { grid: { color: '#1e2d45' }, ticks: { color: '#64748b' }, border: { color: '#1e2d45' } }
+  }
+});
+
+const donutOpts = () => ({
+  responsive: true, maintainAspectRatio: true,
+  plugins: {
+    legend: { position: 'bottom', labels: { padding: 14, boxWidth: 10, color: '#94a3b8' } },
+    tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed.toLocaleString()} (${((ctx.parsed/ctx.dataset.data.reduce((a,b)=>a+b,0))*100).toFixed(1)}%)` } }
+  },
+  cutout: '62%'
+});
+
+// ─── OVERVIEW ───────────────────────────────────────────
+new Chart('txnStatusBar', {
+  type: 'bar',
+  data: {
+    labels: ['Success', 'Failed', 'Pending'],
+    datasets: [{
+      data: [92140, 5871, 1989],
+      backgroundColor: [GREEN, RED, YELLOW],
+      borderRadius: 5, borderSkipped: false
+    }]
+  },
+  options: barOpts()
+});
+
+new Chart('channelDonut', {
+  type: 'doughnut',
+  data: {
+    labels: ['App', 'Intent', 'QR Code'],
+    datasets: [{ data: [33365, 33356, 33279], backgroundColor: [CYAN, PURPLE, ORANGE], borderWidth: 0, hoverOffset: 8 }]
+  },
+  options: donutOpts()
+});
+
+new Chart('txnTypeBar', {
+  type: 'bar',
+  data: {
+    labels: ['Send', 'Receive', 'Merchant', 'Bill Pay'],
+    datasets: [{
+      data: [35032, 34819, 25097, 5052],
+      backgroundColor: [CYAN, PURPLE, ORANGE, GREEN],
+      borderRadius: 5, borderSkipped: false
+    }]
+  },
+  options: barOpts()
+});
+
+new Chart('ageDonut', {
+  type: 'doughnut',
+  data: {
+    labels: ['Adult', 'Young Adult', 'Senior'],
+    datasets: [{ data: [4676, 3404, 1920], backgroundColor: [CYAN, ORANGE, PURPLE], borderWidth: 0, hoverOffset: 8 }]
+  },
+  options: donutOpts()
+});
+
+new Chart('deviceDonut', {
+  type: 'doughnut',
+  data: {
+    labels: ['iOS', 'Android', 'Tablet', 'Feature Phone'],
+    datasets: [{ data: [3032, 3018, 2978, 2972], backgroundColor: [CYAN, GREEN, ORANGE, PURPLE], borderWidth: 0, hoverOffset: 8 }]
+  },
+  options: donutOpts()
+});
+
+// ─── TRANSACTIONS ───────────────────────────────────────
+new Chart('txnVolType', {
+  type: 'bar',
+  data: {
+    labels: ['Send', 'Receive', 'Merchant Payment', 'Bill Pay'],
+    datasets: [{
+      label: 'Count',
+      data: [35032, 34819, 25097, 5052],
+      backgroundColor: [CYAN + 'cc', PURPLE + 'cc', ORANGE + 'cc', GREEN + 'cc'],
+      borderColor: [CYAN, PURPLE, ORANGE, GREEN],
+      borderWidth: 1.5, borderRadius: 6, borderSkipped: false
+    }]
+  },
+  options: barOpts()
+});
+
+new Chart('statusPie', {
+  type: 'doughnut',
+  data: {
+    labels: ['Success (92,140)', 'Failed (5,871)', 'Pending (1,989)'],
+    datasets: [{ data: [92140, 5871, 1989], backgroundColor: [GREEN, RED, YELLOW], borderWidth: 0, hoverOffset: 8 }]
+  },
+  options: donutOpts()
+});
+
+new Chart('bankBar', {
+  type: 'bar',
+  data: {
+    labels: ['SBI', 'Kotak', 'ICICI', 'PNB', 'HDFC', 'Axis'],
+    datasets: [{
+      data: [2036, 2010, 2001, 1992, 1990, 1971],
+      backgroundColor: [CYAN, PURPLE, ORANGE, GREEN, YELLOW, PINK].map(c => c + 'bb'),
+      borderColor: [CYAN, PURPLE, ORANGE, GREEN, YELLOW, PINK],
+      borderWidth: 1.5, borderRadius: 5, borderSkipped: false
+    }]
+  },
+  options: { ...barOpts(true), scales: { x: { grid: { color: '#1e2d45' }, ticks: { color: '#64748b' } }, y: { grid: { color: '#1e2d45' }, ticks: { color: '#94a3b8' } } } }
+});
+
+// ─── FRAUD ──────────────────────────────────────────────
+new Chart('alertTypeChart', {
+  type: 'bar',
+  data: {
+    labels: ['Unusual Time', 'Freq. Failure', 'Suspicious Login', 'Unusual Amount'],
+    datasets: [{
+      data: [507, 501, 498, 494],
+      backgroundColor: [YELLOW + 'cc', RED + 'cc', RED + 'cc', ORANGE + 'cc'],
+      borderColor: [YELLOW, RED, RED, ORANGE],
+      borderWidth: 1.5, borderRadius: 5, borderSkipped: false
+    }]
+  },
+  options: barOpts()
+});
+
+new Chart('alertResChart', {
+  type: 'doughnut',
+  data: {
+    labels: ['Resolved (1,752)', 'Unresolved (248)'],
+    datasets: [{ data: [1752, 248], backgroundColor: [GREEN, RED], borderWidth: 0, hoverOffset: 8 }]
+  },
+  options: donutOpts()
+});
+
+// ─── CUSTOMERS ──────────────────────────────────────────
+new Chart('regionBar', {
+  type: 'bar',
+  data: {
+    labels: ['North', 'Central', 'West', 'South', 'East'],
+    datasets: [{
+      data: [2071, 2019, 1986, 1971, 1953],
+      backgroundColor: [CYAN, PURPLE, ORANGE, GREEN, YELLOW].map(c => c + 'cc'),
+      borderColor: [CYAN, PURPLE, ORANGE, GREEN, YELLOW],
+      borderWidth: 1.5, borderRadius: 5, borderSkipped: false
+    }]
+  },
+  options: barOpts()
+});
+
+new Chart('ageBar', {
+  type: 'bar',
+  data: {
+    labels: ['Adult (26–59)', 'Young Adult (18–25)', 'Senior (60+)'],
+    datasets: [{
+      data: [4676, 3404, 1920],
+      backgroundColor: [CYAN + 'cc', ORANGE + 'cc', PURPLE + 'cc'],
+      borderColor: [CYAN, ORANGE, PURPLE],
+      borderWidth: 1.5, borderRadius: 5, borderSkipped: false
+    }]
+  },
+  options: barOpts()
+});
+
+new Chart('osBar', {
+  type: 'bar',
+  data: {
+    labels: ['iOS', 'Android', 'Tablet', 'Feature Phone'],
+    datasets: [{
+      data: [3032, 3018, 2978, 2972],
+      backgroundColor: [CYAN, GREEN, ORANGE, PURPLE].map(c => c + 'cc'),
+      borderColor: [CYAN, GREEN, ORANGE, PURPLE],
+      borderWidth: 1.5, borderRadius: 5, borderSkipped: false
+    }]
+  },
+  options: barOpts()
+});
+
+new Chart('acctTypeChart', {
+  type: 'doughnut',
+  data: {
+    labels: ['Current', 'Savings', 'Credit Card Linked'],
+    datasets: [{ data: [4031, 4027, 3942], backgroundColor: [CYAN, GREEN, PURPLE], borderWidth: 0, hoverOffset: 8 }]
+  },
+  options: donutOpts()
+});
+
+// ─── MERCHANTS ──────────────────────────────────────────
+new Chart('merchTypeChart', {
+  type: 'bar',
+  data: {
+    labels: ['Apparel', 'Electronics', 'Online', 'Food', 'Grocery', 'Transport'],
+    datasets: [{
+      data: [98, 91, 86, 80, 75, 70],
+      backgroundColor: [PINK, CYAN, PURPLE, ORANGE, GREEN, YELLOW].map(c => c + 'cc'),
+      borderColor: [PINK, CYAN, PURPLE, ORANGE, GREEN, YELLOW],
+      borderWidth: 1.5, borderRadius: 5, borderSkipped: false
+    }]
+  },
+  options: barOpts()
+});
+
+new Chart('merchRiskChart', {
+  type: 'doughnut',
+  data: {
+    labels: ['Low Risk (288)', 'Medium Risk (209)', 'High Risk (3)'],
+    datasets: [{ data: [288, 209, 3], backgroundColor: [GREEN, YELLOW, RED], borderWidth: 0, hoverOffset: 8 }]
+  },
+  options: donutOpts()
+});
+
+// ─── TAB SWITCHING ───────────────────────────────────────
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
